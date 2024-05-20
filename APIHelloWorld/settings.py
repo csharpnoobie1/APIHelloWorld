@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zuloo#(f-2twxk31#z-#i@29cq0qrnj#sifs=#wamy9rrh31y%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['backendapihello.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,16 +78,19 @@ WSGI_APPLICATION = 'APIHelloWorld.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'HelloWorld',
-        'USER': 'root',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost', 
-        'PORT': '', 
+        'NAME': os.getenv('AZURE_MYSQL_NAME'),
+        'USER': os.getenv('AZURE_MYSQL_USER'),
+        'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
+        'HOST': os.getenv('AZURE_MYSQL_HOST'),
+        'PORT': '3306',
     }
 }
+
 
 
 # Password validation
