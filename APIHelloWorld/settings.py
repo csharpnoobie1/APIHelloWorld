@@ -75,18 +75,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'APIHelloWorld.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('AZURE_MYSQL_NAME'),
-        'USER': os.getenv('AZURE_MYSQL_USER'),
-        'PASSWORD': os.getenv('AZURE_MYSQL_PASSWORD'),
-        'HOST': os.getenv('AZURE_MYSQL_HOST'),
+        'NAME': 'helloWorld',
+        'USER': 'ucvrpfylqr',
+        'PASSWORD': '1I1$NE$LavDcLKCK',
+        'HOST': 'apibackendv-server.mysql.database.azure.com',
         'PORT': '3306',
     }
 }
